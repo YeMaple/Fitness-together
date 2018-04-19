@@ -1,0 +1,11 @@
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\bin\Debug\netcoreapp2.0\CSE136.deps.json
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\bin\Debug\netcoreapp2.0\CSE136.runtimeconfig.json
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\bin\Debug\netcoreapp2.0\CSE136.runtimeconfig.dev.json
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\bin\Debug\netcoreapp2.0\CSE136.dll
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\bin\Debug\netcoreapp2.0\CSE136.pdb
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.csprojResolveAssemblyReference.cache
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.csproj.CoreCompileInputs.cache
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.AssemblyInfoInputs.cache
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.AssemblyInfo.cs
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.dll
+C:\Users\Ye Feng\source\repos\CSE136\CSE136\obj\Debug\netcoreapp2.0\CSE136.pdb
