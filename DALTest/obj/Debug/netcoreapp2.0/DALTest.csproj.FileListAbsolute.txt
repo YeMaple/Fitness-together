@@ -1,0 +1,17 @@
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DALTest.deps.json
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DALTest.runtimeconfig.json
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DALTest.runtimeconfig.dev.json
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DALTest.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DALTest.pdb
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DAL.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\bin\Debug\netcoreapp2.0\DAL.pdb
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.csprojResolveAssemblyReference.cache
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.csproj.CoreCompileInputs.cache
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.AssemblyInfoInputs.cache
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.AssemblyInfo.cs
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.csproj.CopyComplete
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.dll
+C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.pdb
