@@ -39,5 +39,21 @@ namespace DALTest
             Assert.AreEqual(person.Name, returned.Name);
             access.Delete<Persons>(returned.Id);
         }
+
+        [TestMethod]
+        public void TestCRUDForWorkouts()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var workout = access.Add(new Workouts { Name = "Test Workout", Category = "Unit test", CreatorId = 5 });
+            Assert.AreEqual("Test Workout", workout.Name);
+
+            workout.Name = "Changed Test Workout";
+            workout.Category = "Changed Workout";
+            workout = access.Update(workout, workout.Id);
+            var returned = access.GetById<Workouts>(workout.Id);
+            Assert.AreEqual(workout.Name, returned.Name);
+            access.Delete<Workouts>(returned.Id);
+        }
     }
 }

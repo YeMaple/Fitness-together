@@ -57,5 +57,23 @@ namespace DALTest
             access.Delete<DietPlans>(diet_plan_1.Id);
             access.Delete<DietPlans>(diet_plan_2.Id);
         }
+
+        [TestMethod]
+        public void TestFollowingGetFollowing()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new FollowingsAccess(context);
+            var person_1 = access.Add(new Persons { Age = 12, Email = "follower@test.com", Name = "FollowerTest", Password = "notsecure", Sex = "M", Profile = "For unit test" });
+            var person_2 = access.Add(new Persons { Age = 21, Email = "following@test.com", Name = "FollowingTest", Password = "notsecure", Sex = "M", Profile = "For unit test" });
+            Assert.AreEqual("FollowerTest", person_1.Name);
+            Assert.AreEqual("FollowingTest", person_2.Name);
+            var following = access.Add(new Followings { Follower = person_1.Id, Following = person_2.Id });
+            var returned = spec_access.GetFollowings(person_1.Id);
+            Assert.IsTrue(returned.ToList().Contains(following));
+            access.Delete<Followings>(following.Id);
+            access.Delete<Persons>(person_1.Id);
+            access.Delete<Persons>(person_2.Id);
+        }
     }
 }
