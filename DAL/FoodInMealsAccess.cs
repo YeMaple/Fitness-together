@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DAL
 {
-    class FoodInMealsAccess
+    public class FoodInMealsAccess
     {
         private readonly cse136Context _context;
 

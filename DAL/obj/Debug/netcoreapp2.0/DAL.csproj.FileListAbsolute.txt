@@ -7,3 +7,11 @@ C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInf
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.dll
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.pdb
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.csprojResolveAssemblyReference.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\bin\Debug\netcoreapp2.0\DAL.deps.json
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\bin\Debug\netcoreapp2.0\DAL.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\bin\Debug\netcoreapp2.0\DAL.pdb
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CoreCompileInputs.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfoInputs.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\obj\Debug\netcoreapp2.0\DAL.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DAL\obj\Debug\netcoreapp2.0\DAL.pdb

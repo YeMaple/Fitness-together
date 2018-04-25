@@ -75,5 +75,47 @@ namespace DALTest
             access.Delete<Persons>(person_1.Id);
             access.Delete<Persons>(person_2.Id);
         }
+
+        [TestMethod]
+        public void TestFoodInMeals()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new FoodInMealsAccess(context);
+            var kiwi = access.Add(new Foods { Name = "Kiwi", Category = "Fruit", Nutrition = "Don't know" });
+            var carrot = access.Add(new Foods { Name = "Cattor", Category = "Vegetable", Nutrition = "Vitamin A" });
+            Assert.AreEqual("Kiwi", kiwi.Name);
+            Assert.AreEqual("Carrot", carrot.Name);
+            var meal = access.Add(new Meals { Name = "Test Meal", DietPlanId = 5 });
+            var mealFood1 = access.Add(new FoodInMeals { MealId = meal.Id, FoodId = kiwi.Id });
+            var mealFood2 = access.Add(new FoodInMeals { MealId = meal.Id, FoodId = carrot.Id });
+            var returned = spec_access.GetFoodsInMeals(meal.Id);
+            Assert.IsTrue(returned.ToList().Contains(mealFood1));
+            access.Delete<Meals>(mealFood1.Id);
+            access.Delete<Meals>(mealFood2.Id);
+            access.Delete<Foods>(kiwi.Id);
+            access.Delete<Foods>(carrot.Id);
+        }
+
+        [TestMethod]
+        public void TestPinnedWorkouts()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new PinnedWorkoutsAccess(context);
+
+            var creator = access.Add(new Persons { Age = 12, Email = "follower@test.com", Name = "FollowerTest", Password = "notsecure", Sex = "M", Profile = "For unit test" });
+
+            var workout = access.Add(new Workouts { Name = "Pull Up", Category = "Body Weight", CreatorId = creator.Id });
+            Assert.AreEqual("Pull Up", workout.Name);
+
+            var pinned = access.Add(new PinnedWorkouts { PersonId = creator.Id, WorkoutId = workout.Id});
+            var returned = spec_access.GetPinnedWorkoutsByPerson(creator.Id);
+
+            Assert.IsTrue(returned.ToList().Contains(pinned));
+            access.Delete<Persons>(creator.Id);
+            access.Delete<Workouts>(workout.Id);
+            access.Delete<PinnedWorkouts>(pinned.Id);
+        }
     }
 }

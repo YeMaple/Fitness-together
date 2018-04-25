@@ -15,3 +15,20 @@ C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.Ass
 C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.csproj.CopyComplete
 C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.dll
 C:\Users\Ye Feng\source\repos\CSE136\DALTest\obj\Debug\netcoreapp2.0\DALTest.pdb
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DALTest.deps.json
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DALTest.runtimeconfig.json
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DALTest.runtimeconfig.dev.json
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DALTest.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DALTest.pdb
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DAL.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\bin\Debug\netcoreapp2.0\DAL.pdb
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.csprojResolveAssemblyReference.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.csproj.CoreCompileInputs.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.AssemblyInfoInputs.cache
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.AssemblyInfo.cs
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.csproj.CopyComplete
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.dll
+F:\ProgramData\School\GroupProjects\Fitness-together\DALTest\obj\Debug\netcoreapp2.0\DALTest.pdb
