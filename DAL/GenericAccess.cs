@@ -5,7 +5,7 @@ using DAL.Models;
 
 namespace DAL
 {
-    public class GenericAccess
+    public class GenericAccess : GenericAccessInterface
     {
         private readonly cse136Context _context;
 
@@ -29,12 +29,20 @@ namespace DAL
             return obj;
         }
 
-        public void Delete<T>(int id) where T : class
+        public bool Delete<T>(int id) where T : class
         {
-            var dbSet = _context.Set<T>();
-            var deleteMe = dbSet.Find(id);
-            _context.Remove(deleteMe);
-            _context.SaveChanges();
+            try
+            {
+                var dbSet = _context.Set<T>();
+                var deleteMe = dbSet.Find(id);
+                _context.Remove(deleteMe);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public T Update<T>(T obj, int id) where T : class

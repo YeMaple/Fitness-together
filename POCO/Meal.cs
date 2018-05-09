@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace DAL.Models
+namespace POCO
 {
-    public partial class Meals
+    class Meal
     {
-        public Meals()
-        {
-            FoodInMeals = new HashSet<FoodInMeals>();
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Information { get; set; }
@@ -17,7 +13,6 @@ namespace DAL.Models
         public DateTime Alarm { get; set; }
         public bool Reminder { get; set; }
 
-        public DietPlans DietPlan { get; set; }
-        public ICollection<FoodInMeals> FoodInMeals { get; set; }
+        public List<Food> FoodsInMeal { get; set; }
     }
 }

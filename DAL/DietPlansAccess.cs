@@ -6,7 +6,7 @@ using DAL.Models;
 
 namespace DAL
 {
-    public class DietPlansAccess
+    public class DietPlansAccess : DietPlansAccessInterface
     {
         private readonly cse136Context _context;
 
@@ -15,12 +15,12 @@ namespace DAL
             _context = context;
         }
 
-        public IEnumerable<DietPlans> GetDietPlansByCreator(int creator_id)
+        public IEnumerable<DietPlans> GetDietPlansByCreatorId(int creator_id)
         {
             return _context.DietPlans.Where(d => d.PersonId == creator_id).ToList();
         }
 
-        public IEnumerable<DietPlans> GetDietPlansBySearch(string name)
+        public IEnumerable<DietPlans> GetDietPlansByName(string name)
         {
             return _context.DietPlans.Where(d => d.Name.Contains(name)).ToList();
         }
