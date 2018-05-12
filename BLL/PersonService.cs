@@ -21,7 +21,7 @@ namespace BLL
             _followingsAccess = followingsAccess;
         }
 
-        public POCO.Person Create(POCO.Person person)
+        public POCO.Person create(POCO.Person person)
         {
             if(person == null)
             {
@@ -50,7 +50,7 @@ namespace BLL
                 Profile = person.Profile,
                 Image = person.Image
             };
-            _genericAccess.Add(p);
+            p = _genericAccess.Add(p);
             person.Id = p.Id;
             return person;
         }

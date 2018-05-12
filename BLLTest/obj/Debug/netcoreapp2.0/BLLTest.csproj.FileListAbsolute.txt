@@ -16,3 +16,6 @@ C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.csp
 C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.AssemblyInfoInputs.cache
 C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.AssemblyInfo.cs
 C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.csproj.CopyComplete
+C:\Users\Ye Feng\source\repos\CSE136\BLLTest\bin\Debug\netcoreapp2.0\BLLTest.pdb
+C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.dll
+C:\Users\Ye Feng\source\repos\CSE136\BLLTest\obj\Debug\netcoreapp2.0\BLLTest.pdb

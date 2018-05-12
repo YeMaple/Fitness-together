@@ -1,7 +1,6 @@
 C:\Users\Ye Feng\source\repos\CSE136\POCO\bin\Debug\netcoreapp2.0\POCO.deps.json
 C:\Users\Ye Feng\source\repos\CSE136\POCO\bin\Debug\netcoreapp2.0\POCO.dll
 C:\Users\Ye Feng\source\repos\CSE136\POCO\bin\Debug\netcoreapp2.0\POCO.pdb
-C:\Users\Ye Feng\source\repos\CSE136\POCO\obj\Debug\netcoreapp2.0\POCO.csprojResolveAssemblyReference.cache
 C:\Users\Ye Feng\source\repos\CSE136\POCO\obj\Debug\netcoreapp2.0\POCO.csproj.CoreCompileInputs.cache
 C:\Users\Ye Feng\source\repos\CSE136\POCO\obj\Debug\netcoreapp2.0\POCO.AssemblyInfoInputs.cache
 C:\Users\Ye Feng\source\repos\CSE136\POCO\obj\Debug\netcoreapp2.0\POCO.AssemblyInfo.cs
