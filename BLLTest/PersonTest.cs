@@ -127,5 +127,102 @@ namespace BLLTest
             //// Note, this line does not work because MOQ framework cannot detect generic calls
             //// genericAccess.Verify(arg => arg.Delete<Student>(It.IsAny<int>()), Times.Once);
         }
+
+        [Fact]
+        public void LoginExceptionTest1()
+        {
+            //// Arranage
+
+            //// Act & Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => _service.login("123@456.com", ""));
+        }
+
+        [Fact]
+        public void LoginExceptionTest2()
+        {
+            //// Arranage
+
+            //// Act & Assert
+            Assert.Throws<InvalidEnumArgumentException>(() => _service.login("123456.com", "testpass"));
+        }
+
+        [Fact]
+        public void LoginSuccessTest()
+        {
+            ////Arrange
+            var person = new Person
+            {
+                Id = 1,
+                Name = "Peter",
+                Email = "Test@email.com",
+                Age = 12,
+                Password = "Goodpass"
+            };
+
+            var entity = PersonService.POCOObjToEntity(person);
+            _personAccess.Setup(access => access.Login(It.IsAny<string>(), It.IsAny<string>())).Returns(entity);
+
+            //// Act
+            var returned = _service.login("Test@email.com", "Goodpass");
+
+            //// Assert
+            _personAccess.Verify(access => access.Login(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+            Assert.Equal(person.Id, returned.Id);
+            Assert.Equal(person.Name, returned.Name);
+            Assert.Equal(person.Email, returned.Email);
+            Assert.Equal(person.Age, returned.Age);
+            Assert.Equal(person.Password, returned.Password);
+        }
+
+        [Fact]
+        public void getFollowingsTest()
+        {
+            ////Arrange
+            var entityList = new List<DAL.Models.Followings>
+                            {
+                                new DAL.Models.Followings {
+                                    Id = 1,
+                                    Follower = 1,
+                                    Following = 2,
+                                    FollowerNavigation = new DAL.Models.Persons
+                                    {
+                                        Id = 1, Name = "Test1", Email = "Test1@email.com", Password = "GoodPass"
+                                    },
+                                    FollowingNavigation = new DAL.Models.Persons
+                                    {
+                                        Id = 2, Name = "Test2", Email = "Test2@email.com", Password = "GoodPass"
+                                    },
+                                },
+                                new DAL.Models.Followings {
+                                    Id = 2,
+                                    Follower = 1,
+                                    Following = 3,
+                                    FollowerNavigation = new DAL.Models.Persons
+                                    {
+                                        Id = 1, Name = "Test1", Email = "Test1@email.com", Password = "GoodPass"
+                                    },
+                                    FollowingNavigation = new DAL.Models.Persons
+                                    {
+                                        Id = 3, Name = "Test3", Email = "Test3@email.com", Password = "GoodPass"
+                                    },
+                                }
+                            };
+            var followingList = new List<Person>
+                                {
+                                    new Person { Id = 2, Name = "Test2", Email = "Test2@email.com", Password = "GoodPass" },
+                                    new Person { Id = 3, Name = "Test3", Email = "Test3@email.com", Password = "GoodPass" }
+                                };
+            _followingsAccess.Setup(access => access.GetFollowings(It.IsAny<int>())).Returns(entityList);
+
+            ////Act
+            var returned = _service.getFollowings(1);
+
+            //// Assert
+            _followingsAccess.Verify(access => access.GetFollowings(It.IsAny<int>()), Times.Once);
+            Assert.Equal(followingList[0].Id, returned[0].Id);
+            Assert.Equal(followingList[0].Name, returned[0].Name);
+            Assert.Equal(followingList[1].Id, returned[1].Id);
+            Assert.Equal(followingList[1].Name, returned[1].Name);
+        }
     }
 }
