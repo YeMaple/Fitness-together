@@ -51,7 +51,7 @@ namespace DAL
             var changeMe = dbSet.Find(id);
             if (changeMe == null)
             {
-                return obj;
+                return null;
             }
 
             dbSet.Update(obj);

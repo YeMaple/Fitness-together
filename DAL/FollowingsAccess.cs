@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DAL
 {
-    public class FollowingsAccess
+    public class FollowingsAccess : FollowingsAccessInterface
     {
         private readonly cse136Context _context;
 

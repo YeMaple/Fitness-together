@@ -34,10 +34,13 @@ namespace DALTest
 
             person.Name = "Changed UnitTest";
             person.Profile = "Changed profile";
-            person = access.Update(person, person.Id);
-            var returned = access.GetById<Persons>(person.Id);
-            Assert.AreEqual(person.Name, returned.Name);
-            access.Delete<Persons>(returned.Id);
+            Persons personReturn = access.Update(person, 100);
+            var returned = access.GetById<Persons>(100);
+
+            Persons personReturn2 = access.Update(person, person.Id);
+            var returned2 = access.GetById<Persons>(person.Id);
+            Assert.AreEqual(person.Name, returned2.Name);
+            access.Delete<Persons>(returned2.Id);
         }
 
         [TestMethod]

@@ -5,8 +5,8 @@ using DAL.Models;
 
 namespace DAL
 {
-    public interface PersonAccessInterface
+    public interface FollowingsAccessInterface
     {
-        Persons Login(String email, String password);
+        IEnumerable<Followings> GetFollowings(int follower_id);
     }
 }
