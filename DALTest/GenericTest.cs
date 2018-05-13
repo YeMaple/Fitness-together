@@ -34,8 +34,6 @@ namespace DALTest
 
             person.Name = "Changed UnitTest";
             person.Profile = "Changed profile";
-            Persons personReturn = access.Update(person, 100);
-            var returned = access.GetById<Persons>(100);
 
             Persons personReturn2 = access.Update(person, person.Id);
             var returned2 = access.GetById<Persons>(person.Id);

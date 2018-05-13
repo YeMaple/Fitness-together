@@ -12,9 +12,10 @@ namespace BLL
         private readonly GenericAccessInterface _genericAccess;
         private readonly FoodAccessInterface _foodAccess;
 
-        public FoodService(GenericAccessInterface genericAccess, FoodAccessInterface _foodAccess)
+        public FoodService(GenericAccessInterface genericAccess, FoodAccessInterface foodAccess)
         {
             _genericAccess = genericAccess;
+            _foodAccess = foodAccess;
 
         }
 
