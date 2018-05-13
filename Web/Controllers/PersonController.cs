@@ -40,6 +40,27 @@ namespace Web.Controllers
             return result;
         }
 
+        [HttpGet]
+        public IActionResult Login(string email, string password)
+        {
+            var service = new PersonService(_personsAccess, _genericAccess, _followingsAccess);
+            JsonResult result;
+
+            try
+            {
+                var person = service.login(email, password);
+                result = Json(person);
+                result.StatusCode = 200;
+            }
+            catch (Exception e)
+            {
+                result = Json(e);
+                result.StatusCode = 400;
+            }
+
+            return result;
+        }
+
         [HttpPost]
         public IActionResult Create(POCO.Person p)
         {

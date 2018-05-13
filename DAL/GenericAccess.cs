@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
@@ -47,16 +48,19 @@ namespace DAL
 
         public T Update<T>(T obj, int id) where T : class
         {
-            var dbSet = _context.Set<T>();
-            var changeMe = dbSet.Find(id);
-            if (changeMe == null)
+            try
             {
-                return null;
+                var dbSet = _context.Set<T>();
+                var changeMe = dbSet.Find(id);
+                _context.Entry(changeMe).State = EntityState.Detached;
+                dbSet.Update(obj);
+                _context.SaveChanges();
+                return obj;
             }
-
-            dbSet.Update(obj);
-            _context.SaveChanges();
-            return changeMe;
+            catch (Exception e)
+            {
+                throw new Exception("error while updating object", e);
+            }
         }
     }
 }
