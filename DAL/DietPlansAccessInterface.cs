@@ -7,7 +7,7 @@ namespace DAL
 {
     public interface DietPlansAccessInterface
     {
-        IEnumerable<DietPlans> GetDietPlansByCreatorId(int creator_id);
+        IEnumerable<DietPlans> GetDietPlansById(int creator_id);
         IEnumerable<DietPlans> GetDietPlansByName(string name);
     }
 }
