@@ -32,7 +32,7 @@ namespace DALTest
             Assert.AreEqual("MyUnitTest", person.Name);
             var diet_plan_1 = access.Add(new DietPlans { Name = "Unit Diet 1", Information = "Unit test diet 1", PersonId = person.Id });
             var diet_plan_2 = access.Add(new DietPlans { Name = "Unit Diet 2", Information = "Unit test diet 2", PersonId = person.Id });
-            var returned = spec_access.GetDietPlansByCreatorId(person.Id);
+            var returned = spec_access.GetDietPlansById(person.Id);
             Assert.IsTrue(returned.ToList().Contains(diet_plan_1));
             Assert.IsTrue(returned.ToList().Contains(diet_plan_2));
             access.Delete<Persons>(person.Id);

@@ -15,7 +15,7 @@ namespace DAL
             _context = context;
         }
 
-        public IEnumerable<DietPlans> GetDietPlansByCreatorId(int creator_id)
+        public IEnumerable<DietPlans> GetDietPlansById(int creator_id)
         {
             return _context.DietPlans.Where(d => d.PersonId == creator_id).ToList();
         }

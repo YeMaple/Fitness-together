@@ -12,7 +12,7 @@ namespace BLL
         private readonly GenericAccessInterface _genericAccess;
         private readonly FoodAccessInterface _foodAccess;
 
-        public FoodService(GenericAccessInterface genericAccess)
+        public FoodService(GenericAccessInterface genericAccess, FoodAccessInterface _foodAccess)
         {
             _genericAccess = genericAccess;
 
@@ -51,8 +51,8 @@ namespace BLL
             var food = EntityObjToPOCO(f);
             return food;
         }
-
-        public List<POCO.Food> getFollowings(string name)
+  
+        public List<POCO.Food> getFoodsByName(string name)
         {
             if (string.IsNullOrEmpty(name))
             {
