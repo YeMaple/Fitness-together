@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL;
+using DAL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +24,14 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<GenericAccessInterface, GenericAccess>();
+            services.AddScoped<PersonsAccessInterface, PersonsAccess>();
+            services.AddScoped<DietPlansAccessInterface, DietPlansAccess>();
+            services.AddScoped<FollowingsAccessInterface, FollowingsAccess>();
+            services.AddScoped<FoodInMealsAccessInterface, FoodInMealsAccess>();
+            services.AddScoped<MealsAccessInterface, MealsAccess>();
+            services.AddDbContext<cse136Context>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("CSE136")));
             services.AddMvc();
         }
 
