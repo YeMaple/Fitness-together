@@ -23,6 +23,31 @@ namespace DALTest
         }
 
         [TestMethod]
+        public void TestPersonGetPersonById()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new PersonsAccess(context);
+            var person = access.Add(new Persons { Age = 12, Email = "mytest@test.com", Name = "MyUnitTest", Password = "notsecure", Sex = "M", Profile = "For unit test" });
+            Assert.AreEqual("MyUnitTest", person.Name);
+            var diet_plan_1 = access.Add(new DietPlans { Name = "Unit Diet 1", Information = "Unit test diet 1", PersonId = 2 });
+            var diet_plan_2 = access.Add(new DietPlans { Name = "Unit Diet 2", Information = "Unit test diet 2", PersonId = 2 });
+            var diet_plan_3 = access.Add(new DietPlans { Name = "Unit Diet 3", Information = "Unit test diet 3", PersonId = person.Id });
+            var pinned_diet_plan1 = access.Add(new PinnedDietPlans { DietPlanId = diet_plan_1.Id, PersonId = person.Id });
+            var pinned_diet_plan2 = access.Add(new PinnedDietPlans { DietPlanId = diet_plan_2.Id, PersonId = person.Id });
+            var followings = access.Add(new Followings { Follower = person.Id, Following = 2 });
+            var returned = spec_access.GetPersonById(person.Id);
+            // var returned = access.GetById<Persons>(person.Id);
+            Assert.AreEqual("MyUnitTest", returned.Name);
+            access.Delete<Followings>(followings.Id);
+            access.Delete<PinnedDietPlans>(pinned_diet_plan1.Id);
+            access.Delete<PinnedDietPlans>(pinned_diet_plan2.Id);
+            access.Delete<Persons>(person.Id);
+            access.Delete<DietPlans>(diet_plan_1.Id);
+            access.Delete<DietPlans>(diet_plan_2.Id);
+        }
+
+        [TestMethod]
         public void TestDietPlansGetDietPlansByCreator()
         {
             var context = new cse136Context();
