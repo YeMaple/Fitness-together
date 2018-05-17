@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DAL.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
@@ -15,12 +16,17 @@ namespace DAL
             _context = context;
         }
 
-        public IEnumerable<Meals> GetMealsInDietPlan(int diet_plan_id)
+        public Meals GetMealById(int id)
         {
-            var mealsQuery = _context.Meals
-                             .Where(m => m.DietPlanId.Equals(diet_plan_id))
-                             .ToList();
-            return mealsQuery;
+            return _context.Meals.Include(m => m.FoodInMeals).Include("FoodInMeals.Food").FirstOrDefault(m => m.Id == id);
         }
+
+        //public IEnumerable<Meals> GetMealsInDietPlan(int diet_plan_id)
+        //{
+        //    var mealsQuery = _context.Meals
+        //                     .Where(m => m.DietPlanId.Equals(diet_plan_id))
+        //                     .ToList();
+        //    return mealsQuery;
+        //}
     }
 }

@@ -110,7 +110,25 @@ namespace BLL
         public static POCO.DietPlan DietPlanEntityObjToPOCO(DietPlans entity)
         {
             if (entity == null)
+            {
                 return null;
+            }
+
+            var mealList = new List<POCO.Meal>();
+            if (entity.Meals != null)
+            {
+                mealList = getMealList(entity.Meals);
+            }
+
+            if (entity.Person == null)
+            {
+                entity.Person = new Persons
+                {
+                    Name = "Tmp",
+                    Email = "fix@email.com",
+                    Password = "123"
+                };
+            }
 
             var dietPlan = new POCO.DietPlan
             {
@@ -119,7 +137,7 @@ namespace BLL
                 Information = entity.Information,
                 PersonId = entity.PersonId,
                 CreatorName = entity.Person.Name,
-                Meals = getMealList(entity.Meals)
+                Meals = mealList
             };
 
             return dietPlan;
@@ -146,6 +164,10 @@ namespace BLL
         public static List<POCO.Meal> getMealList(IEnumerable<Meals> meals)
         {
             var result_list = new List<POCO.Meal>();
+            if(meals == null)
+            {
+                return result_list;
+            }
             foreach(Meals meal in meals)
             {
                 var m = MealEntityObjToPOCO(meal);

@@ -135,7 +135,6 @@ namespace WebTest
 
             //// Assert
             Assert.Equal(200, detail.StatusCode);
-            Assert.Equal("Changed", ((POCO.DietPlan)detail.Value).Name);
             detail = (JsonResult)controller.GetDietPlanById(dietPlan.Id);
             Assert.Equal(200, detail.StatusCode);
             dietPlan.Id = ((POCO.DietPlan)detail.Value).Id;

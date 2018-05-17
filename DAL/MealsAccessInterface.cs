@@ -7,6 +7,7 @@ namespace DAL
 {
     public interface MealsAccessInterface
     {
-        IEnumerable<Meals> GetMealsInDietPlan(int diet_plan_id);
+        Meals GetMealById(int id);
+        //IEnumerable<Meals> GetMealsInDietPlan(int diet_plan_id);
     }
 }
