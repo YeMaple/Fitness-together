@@ -10,5 +10,6 @@ namespace POCO
         public string Name { get; set; }
         public string Category { get; set; }
         public string Nutrition { get; set; }
+        public double Amount { get; set; }
     }
 }

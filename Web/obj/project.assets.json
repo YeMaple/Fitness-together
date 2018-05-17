@@ -13316,43 +13316,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ye Feng\\.nuget\\packages\\": {},
+    "C:\\Users\\SuperEEJ\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\Web\\Web.csproj",
+      "projectUniqueName": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\Ye Feng\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\Web\\obj\\",
+      "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\Web\\Web.csproj",
+      "packagesPath": "C:\\Users\\SuperEEJ\\.nuget\\packages\\",
+      "outputPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ye Feng\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\SuperEEJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "E:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "E:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\BLL\\BLL.csproj"
+            "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\BLL\\BLL.csproj": {
+              "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\BLL\\BLL.csproj"
             },
-            "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\DAL\\DAL.csproj"
+            "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\DAL\\DAL.csproj": {
+              "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\POCO\\POCO.csproj": {
-              "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\POCO\\POCO.csproj"
+            "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\POCO\\POCO.csproj": {
+              "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\POCO\\POCO.csproj"
             }
           }
         }

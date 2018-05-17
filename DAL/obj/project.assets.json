@@ -7483,30 +7483,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ye Feng\\.nuget\\packages\\": {},
+    "C:\\Users\\SuperEEJ\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\DAL\\DAL.csproj",
+      "projectUniqueName": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\DAL\\DAL.csproj",
-      "packagesPath": "C:\\Users\\Ye Feng\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\DAL\\obj\\",
+      "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\DAL\\DAL.csproj",
+      "packagesPath": "C:\\Users\\SuperEEJ\\.nuget\\packages\\",
+      "outputPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ye Feng\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\SuperEEJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "E:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "E:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
