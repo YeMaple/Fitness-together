@@ -11,7 +11,7 @@ namespace POCO
         public string Information { get; set; }
         public int PersonId { get; set; }
 
-        public string CreatorName{ get; set; }
+        public Person Creator{ get; set; }
         public List<Meal> Meals { get; set; }
     }
 }

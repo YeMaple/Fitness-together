@@ -47,7 +47,7 @@ namespace BLL
                 throw new InvalidEnumArgumentException();
             }
 
-            var d = _genericAccess.GetById<DietPlans>(id);
+            var d = _dietPlanAccess.GetDietPlanById(id);
             var dietPlan = DietPlanEntityObjToPOCO(d);
             return dietPlan;
         }
@@ -59,7 +59,7 @@ namespace BLL
                 throw new InvalidEnumArgumentException();
             }
 
-            var d_list = _dietPlanAccess.GetDietPlansById(creator_id);
+            var d_list = _dietPlanAccess.GetDietPlansByCreatorId(creator_id);
             List<POCO.DietPlan> result_list = new List<POCO.DietPlan>();
             foreach(DietPlans dietPlan in d_list)
             {
@@ -114,31 +114,15 @@ namespace BLL
                 return null;
             }
 
-            var mealList = new List<POCO.Meal>();
-            if (entity.Meals != null)
-            {
-                mealList = getMealList(entity.Meals);
-            }
-
-            if (entity.Person == null)
-            {
-                entity.Person = new Persons
-                {
-                    Name = "Tmp",
-                    Email = "fix@email.com",
-                    Password = "123"
-                };
-            }
-
             var dietPlan = new POCO.DietPlan
             {
                 Id = entity.Id,
                 Name = entity.Name,
                 Information = entity.Information,
                 PersonId = entity.PersonId,
-                CreatorName = entity.Person.Name,
-                Meals = mealList
-            };
+                Creator = PersonEntityToPOCO(entity.Person),
+                Meals = getMealList(entity.Meals)
+        };
 
             return dietPlan;
         }
@@ -160,7 +144,27 @@ namespace BLL
             return d;
         }
 
-        // List of meal with only partial information
+        // Basic information of Person
+        public static POCO.Person PersonEntityToPOCO(Persons entity)
+        {
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var p = new POCO.Person
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Email = entity.Email,
+                Age = entity.Age,
+                Sex = entity.Sex
+            };
+
+            return p;
+        }
+
+        // List of meal with basic information
         public static List<POCO.Meal> getMealList(IEnumerable<Meals> meals)
         {
             var result_list = new List<POCO.Meal>();
@@ -170,14 +174,14 @@ namespace BLL
             }
             foreach(Meals meal in meals)
             {
-                var m = MealEntityObjToPOCO(meal);
+                var m = MealEntityToPOCO(meal);
                 result_list.Add(m);
             }
             return result_list;
         }
 
-        // Only get partial information about meal
-        public static POCO.Meal MealEntityObjToPOCO(Meals entity)
+        // Only get basic information about meal
+        public static POCO.Meal MealEntityToPOCO(Meals entity)
         {
             if(entity == null)
             {
