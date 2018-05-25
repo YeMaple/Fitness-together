@@ -17,6 +17,21 @@ namespace DAL.Models
         public virtual DbSet<Workouts> Workouts { get; set; }
         public virtual DbSet<WorkoutSteps> WorkoutSteps { get; set; }
 
+        /// <summary>
+        /// added constructor for Startup.cs to use
+        /// </summary>
+        /// <param name="options"></param>
+        public cse136Context(DbContextOptions options) : base(options)
+        {
+        }
+
+        /// <summary>
+        /// Added constructor for empty parameter
+        /// </summary>
+        public cse136Context()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
