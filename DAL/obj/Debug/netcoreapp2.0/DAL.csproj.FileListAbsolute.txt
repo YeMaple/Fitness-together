@@ -6,4 +6,3 @@ C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInf
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.dll
 C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.pdb
-C:\Users\Ye Feng\source\repos\CSE136\DAL\obj\Debug\netcoreapp2.0\DAL.csprojResolveAssemblyReference.cache

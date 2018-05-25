@@ -14,7 +14,7 @@ namespace DAL.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Information { get; set; }
-        public int? PersonId { get; set; }
+        public int PersonId { get; set; }
 
         public Persons Person { get; set; }
         public ICollection<Meals> Meals { get; set; }

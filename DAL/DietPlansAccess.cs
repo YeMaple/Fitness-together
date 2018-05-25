@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
-    public class DietPlansAccess
+    public class DietPlansAccess : DietPlansAccessInterface
     {
         private readonly cse136Context _context;
 
@@ -15,14 +16,19 @@ namespace DAL
             _context = context;
         }
 
-        public IEnumerable<DietPlans> GetDietPlansByCreator(int creator_id)
+        public DietPlans GetDietPlanById(int id)
         {
-            return _context.DietPlans.Where(d => d.PersonId == creator_id).ToList();
+            return _context.DietPlans.Include(d => d.Meals).Include(d => d.Person).FirstOrDefault(d => d.Id == id);
         }
 
-        public IEnumerable<DietPlans> GetDietPlansBySearch(string name)
+        public IEnumerable<DietPlans> GetDietPlansByCreatorId(int creator_id)
         {
-            return _context.DietPlans.Where(d => d.Name.Contains(name)).ToList();
+            return _context.DietPlans.Include(d => d.Person).Where(d => d.PersonId == creator_id).ToList();
+        }
+
+        public IEnumerable<DietPlans> GetDietPlansByName(string name)
+        {
+            return _context.DietPlans.Include(d => d.Person).Where(d => d.Name.Contains(name)).ToList();
         }
     }
 }

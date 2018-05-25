@@ -10,7 +10,6 @@ namespace DAL.Models
             DietPlans = new HashSet<DietPlans>();
             FollowingsFollowerNavigation = new HashSet<Followings>();
             FollowingsFollowingNavigation = new HashSet<Followings>();
-            // PinnedDietPlansDietPlan = new HashSet<PinnedDietPlans>();
             PinnedDietPlansPerson = new HashSet<PinnedDietPlans>();
             PinnedWorkouts = new HashSet<PinnedWorkouts>();
             Workouts = new HashSet<Workouts>();
@@ -28,7 +27,6 @@ namespace DAL.Models
         public ICollection<DietPlans> DietPlans { get; set; }
         public ICollection<Followings> FollowingsFollowerNavigation { get; set; }
         public ICollection<Followings> FollowingsFollowingNavigation { get; set; }
-        // public ICollection<PinnedDietPlans> PinnedDietPlansDietPlan { get; set; }
         public ICollection<PinnedDietPlans> PinnedDietPlansPerson { get; set; }
         public ICollection<PinnedWorkouts> PinnedWorkouts { get; set; }
         public ICollection<Workouts> Workouts { get; set; }

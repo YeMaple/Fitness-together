@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
-    public class GenericAccess
+    public class GenericAccess : GenericAccessInterface
     {
         private readonly cse136Context _context;
 
@@ -29,26 +30,37 @@ namespace DAL
             return obj;
         }
 
-        public void Delete<T>(int id) where T : class
+        public bool Delete<T>(int id) where T : class
         {
-            var dbSet = _context.Set<T>();
-            var deleteMe = dbSet.Find(id);
-            _context.Remove(deleteMe);
-            _context.SaveChanges();
+            try
+            {
+                var dbSet = _context.Set<T>();
+                var deleteMe = dbSet.Find(id);
+                _context.Remove(deleteMe);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public T Update<T>(T obj, int id) where T : class
         {
-            var dbSet = _context.Set<T>();
-            var changeMe = dbSet.Find(id);
-            if (changeMe == null)
+            try
             {
+                var dbSet = _context.Set<T>();
+                var changeMe = dbSet.Find(id);
+                _context.Entry(changeMe).State = EntityState.Detached;
+                dbSet.Update(obj);
+                _context.SaveChanges();
                 return obj;
             }
-
-            dbSet.Update(obj);
-            _context.SaveChanges();
-            return changeMe;
+            catch (Exception e)
+            {
+                throw new Exception("error while updating object", e);
+            }
         }
     }
 }
