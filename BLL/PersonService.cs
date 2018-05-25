@@ -148,6 +148,7 @@ namespace BLL
                 Id = entity.Id,
                 Name = entity.Name,
                 Email = entity.Email,
+                Password = entity.Password,
                 Age = entity.Age,
                 Sex = entity.Sex,
                 Profile = entity.Profile,
