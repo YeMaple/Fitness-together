@@ -3,6 +3,8 @@ using DAL;
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using Web.ViewModels;
 
 namespace Web.Controllers
 {
@@ -10,11 +12,26 @@ namespace Web.Controllers
     {
         private readonly GenericAccessInterface _genericAccess;
         private readonly DietPlansAccessInterface _dietPlansAccess;
+        private readonly DietPlanService _service;
 
         public DietPlanController(GenericAccessInterface genericAccess, DietPlansAccessInterface dietPlansAccess)
         {
             _genericAccess = genericAccess;
             _dietPlansAccess = dietPlansAccess;
+            _service = new DietPlanService(_genericAccess, _dietPlansAccess);
+        }
+
+        public IActionResult Index()
+        {
+            var dietPlans = _service.getDietPlansByName("");
+            var viewModel = new List<DietPlan>();
+
+            foreach (var dietPlan in dietPlans)
+            {
+                viewModel.Add(DietPlanPOCOToViewModel(dietPlan));
+            }
+
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -141,6 +158,30 @@ namespace Web.Controllers
             }
 
             return result;
+        }
+
+        private static DietPlan DietPlanPOCOToViewModel(POCO.DietPlan pDietPlan)
+        {
+            var result = new DietPlan
+            {
+                Id = pDietPlan.Id,
+                Name = pDietPlan.Name,
+                Information = pDietPlan.Information,
+                PersonId = pDietPlan.PersonId,
+                CreatorName = getCreatorName(pDietPlan.Creator)
+            };
+
+            return result;
+        }
+
+        private static string getCreatorName(POCO.Person pPerson)
+        {
+            if (pPerson == null)
+            {
+                return null;
+            }
+
+            return pPerson.Name;
         }
     }
 }
