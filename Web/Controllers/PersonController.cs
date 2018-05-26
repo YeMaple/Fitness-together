@@ -27,21 +27,31 @@ namespace Web.Controllers
         public IActionResult Index()
         {
             // Since Login is not implemented
-            // Force the id
-            var Person = _service.getPersonById(5);
-            var viewModel = new Person {
-                Id = Person.Id,
-                Name = Person.Name,
-                Email = Person.Email,
-                Password = Person.Password,
-                Sex = Person.Sex,
-                Age = (int)Person.Age,
-                Profile = Person.Profile,
-                MyDietPlans = DietPlansPOCOToViewModel(Person.MyDietPlans),
-                MyPinnedDietPlans = DietPlansPOCOToViewModel(Person.MyPinnedDietPlans)
-            };
+            // Force the id = 5
+            var person = _service.getPersonById(5);
+            var viewModel = PersonPOCOToViewModel(person);
 
             return View(viewModel);
+        }
+
+        // Person edit page
+        public IActionResult Edit(int id)
+        {
+            var person = _service.getPersonById(id);
+            var viewModel = PersonPOCOToViewModel(person);
+            return View(viewModel);
+        }
+
+        // Call update function
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Person person)
+        {
+            //// Note, there is no error checking on this one and it re-uses
+            //// the MVC's [HttpPut] Update method.
+            var pocoPerson = PersonViewModelToPOCO(person);
+            Update(pocoPerson);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -149,6 +159,24 @@ namespace Web.Controllers
             return result;
         }
 
+        private static Person PersonPOCOToViewModel(POCO.Person person)
+        {
+            var result = new Person
+            {
+                Id = person.Id,
+                Name = person.Name,
+                Email = person.Email,
+                Password = person.Password,
+                Sex = person.Sex,
+                Age = (int)person.Age,
+                Profile = person.Profile,
+                MyDietPlans = DietPlansPOCOToViewModel(person.MyDietPlans),
+                MyPinnedDietPlans = DietPlansPOCOToViewModel(person.MyPinnedDietPlans)
+            };
+
+            return result;
+        }
+
         private static List<DietPlan> DietPlansPOCOToViewModel(List<POCO.DietPlan> pDietPlans)
         {
             if(pDietPlans == null)
@@ -180,6 +208,22 @@ namespace Web.Controllers
             }
 
             return pPerson.Name;
+        }
+
+        private static POCO.Person PersonViewModelToPOCO(Person person)
+        {
+            var result = new POCO.Person
+            {
+                Id = person.Id,
+                Name = person.Name,
+                Email = person.Email,
+                Password = person.Password,
+                Sex = person.Sex,
+                Age = person.Age,
+                Profile = person.Profile
+            };
+
+            return result;
         }
     }
 }
