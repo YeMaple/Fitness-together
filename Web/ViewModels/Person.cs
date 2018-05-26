@@ -22,7 +22,7 @@ namespace Web.ViewModels
         public string Password { get; set; }
 
         [Display(Name = "Sex")]
-        [MaxLength(1)]
+        [MaxLength(10)]
         public string Sex { get; set; }
 
         [Display(Name = "Age")]

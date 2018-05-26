@@ -34,6 +34,7 @@ namespace Web.Controllers
                 Name = Person.Name,
                 Email = Person.Email,
                 Password = Person.Password,
+                Sex = Person.Sex,
                 Age = (int)Person.Age,
                 Profile = Person.Profile,
                 MyDietPlans = DietPlansPOCOToViewModel(Person.MyDietPlans),
