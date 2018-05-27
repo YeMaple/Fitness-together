@@ -58,6 +58,29 @@ namespace Web.Controllers
             }
         }
 
+        public IActionResult Edit(int id)
+        {
+            var dietPlan = _service.getDietPlanById(id);
+            var viewModel = DietPlanPOCOToViewModel(dietPlan);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(DietPlan dietPlan)
+        {
+            var poco = DietPlanViewModelToPOCO(dietPlan);
+            Update(poco);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            var dietPlan = _service.getDietPlanById(id);
+            var viewModel = DietPlanPOCOToViewModelDetail(dietPlan);
+            return View(viewModel);
+        }
+
         [HttpGet]
         public IActionResult GetDietPlanById(int id)
         {
@@ -217,6 +240,45 @@ namespace Web.Controllers
                 Information = dietPlan.Information,
                 PersonId = dietPlan.PersonId
             };
+
+            return result;
+        }
+
+        private static DietPlan DietPlanPOCOToViewModelDetail(POCO.DietPlan pDietPlan)
+        {
+            var result = new DietPlan
+            {
+                Id = pDietPlan.Id,
+                Name = pDietPlan.Name,
+                Information = pDietPlan.Information,
+                PersonId = pDietPlan.PersonId,
+                CreatorName = getCreatorName(pDietPlan.Creator),
+                Meals = MealListPOCOToViewModel(pDietPlan.Meals)
+            };
+
+            return result;
+        }
+
+        private static List<Meal> MealListPOCOToViewModel(List<POCO.Meal> pMealList)
+        {
+            if(pMealList == null)
+            {
+                return null;
+            }
+            var result = new List<Meal>();
+            foreach(POCO.Meal pMeal in pMealList)
+            {
+                var meal = new Meal
+                {
+                    Id = pMeal.Id,
+                    Name = pMeal.Name,
+                    Information = pMeal.Information,
+                    Alarm = pMeal.Alarm,
+                    Reminder = pMeal.Reminder,
+                    DietPlanId = pMeal.DietPlanId
+                };
+                result.Add(meal);
+            }
 
             return result;
         }
