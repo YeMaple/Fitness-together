@@ -17,10 +17,8 @@ namespace Web.ViewModels
         public string Information { get; set; }
 
         [Display(Name = "Creator")]
-        [Editable(false)]
         public string CreatorName { get; set; }
 
-        [Editable(false)]
         public int PersonId { get; set; }
 
         public List<Meal> Meals { get; set; }

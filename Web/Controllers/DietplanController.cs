@@ -34,6 +34,30 @@ namespace Web.Controllers
             return View(viewModel);
         }
 
+        public IActionResult CreateNew(int creatorId, string creatorName)
+        {
+            var viewModel = new DietPlan {
+                PersonId = creatorId,
+                CreatorName = creatorName
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateNew(DietPlan dietPlan)
+        {
+            if (ModelState.IsValid)
+            {
+                Create(DietPlanViewModelToPOCO(dietPlan));
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         [HttpGet]
         public IActionResult GetDietPlanById(int id)
         {
@@ -182,6 +206,19 @@ namespace Web.Controllers
             }
 
             return pPerson.Name;
+        }
+
+        private static POCO.DietPlan DietPlanViewModelToPOCO(DietPlan dietPlan)
+        {
+            var result = new POCO.DietPlan
+            {
+                Id = dietPlan.Id,
+                Name = dietPlan.Name,
+                Information = dietPlan.Information,
+                PersonId = dietPlan.PersonId
+            };
+
+            return result;
         }
     }
 }
