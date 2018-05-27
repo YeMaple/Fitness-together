@@ -1,0 +1,60 @@
+﻿@model Web.ViewModels.DietPlan
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Remove</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DietPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Information)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Information)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatorName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonId)
+        </dd>
+    </dl>
+    
+    <form asp-action="RemovePost">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back</a>
+    </form>
+</div>
+</body>
+</html>

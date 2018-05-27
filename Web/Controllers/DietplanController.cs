@@ -81,6 +81,21 @@ namespace Web.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Remove(int id)
+        {
+            var dietPlan = _service.getDietPlanById(id);
+            var viewModel = DietPlanPOCOToViewModel(dietPlan);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemovePost(int id)
+        {
+            Delete(id);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public IActionResult GetDietPlanById(int id)
         {
