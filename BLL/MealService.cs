@@ -8,14 +8,14 @@ using BLL;
 
 namespace BLL
 {
-    class MealService
+    public class MealService
     {
         private readonly GenericAccessInterface _genericAccess;
         private readonly FoodAccessInterface _foodAccess;
         private readonly MealsAccessInterface _mealAccess;
-        private readonly FoodInMealsAccess _foodInMealsAccess;
+        private readonly FoodInMealsAccessInterface _foodInMealsAccess;
 
-        public MealService(GenericAccessInterface genericAccess, FoodAccessInterface foodAccess, MealsAccessInterface mealAcess, FoodInMealsAccess foodInMealsAccess)
+        public MealService(GenericAccessInterface genericAccess, FoodAccessInterface foodAccess, MealsAccessInterface mealAcess, FoodInMealsAccessInterface foodInMealsAccess)
         {
             _genericAccess = genericAccess;
             _foodAccess = foodAccess;
@@ -101,7 +101,7 @@ namespace BLL
                 Alarm = entity.Alarm,
                 Reminder = entity.Reminder,
 
-                FoodsInMeal = getFoodsInMeal(entity.FoodInMeals)
+                FoodsInMeal = getPOCOFoodsInMeal(entity.FoodInMeals)
             };
 
             return meal;
@@ -126,7 +126,7 @@ namespace BLL
             return m;
         }
 
-        public static List<POCO.Food> getFoodsInMeal(List<FoodInMeals> f_list)
+        public static List<POCO.Food> getPOCOFoodsInMeal(ICollection<FoodInMeals> f_list)
         {
             if (f_list == null)
             {
@@ -139,7 +139,7 @@ namespace BLL
             {
                 var foodEntity = foodsInMeal.Food;
                 var pocoFood = FoodService.EntityObjToPOCO(foodEntity);
-            pocoFood.Amount = foodsInMeal.Amount;
+                pocoFood.Amount = foodsInMeal.Amount;
                 result_list.Add(pocoFood);
             }
             return result_list;

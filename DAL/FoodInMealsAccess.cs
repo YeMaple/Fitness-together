@@ -22,5 +22,13 @@ namespace DAL
                                   .ToList();
             return foodInMealsQuery;
         }
+
+        public void DeleteFoodsInMeal(int meal_id)
+        {
+            var foodInMealsQuery = GetFoodsInMeals(meal_id);
+            _context.Remove(foodInMealsQuery);
+            _context.SaveChanges();
+        }
+
     }
 }

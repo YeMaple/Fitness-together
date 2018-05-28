@@ -8,5 +8,6 @@ namespace DAL
     public interface FoodInMealsAccessInterface
     {
         IEnumerable<FoodInMeals> GetFoodsInMeals(int meal_id);
+        void DeleteFoodsInMeal(int meal_id);
     }
 }
