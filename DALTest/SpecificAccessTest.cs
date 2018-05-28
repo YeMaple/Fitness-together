@@ -23,6 +23,31 @@ namespace DALTest
         }
 
         [TestMethod]
+        public void TestPersonGetPersonById()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new PersonsAccess(context);
+            var person = access.Add(new Persons { Age = 12, Email = "mytest@test.com", Name = "MyUnitTest", Password = "notsecure", Sex = "M", Profile = "For unit test" });
+            Assert.AreEqual("MyUnitTest", person.Name);
+            var diet_plan_1 = access.Add(new DietPlans { Name = "Unit Diet 1", Information = "Unit test diet 1", PersonId = 2 });
+            var diet_plan_2 = access.Add(new DietPlans { Name = "Unit Diet 2", Information = "Unit test diet 2", PersonId = 2 });
+            var diet_plan_3 = access.Add(new DietPlans { Name = "Unit Diet 3", Information = "Unit test diet 3", PersonId = person.Id });
+            var pinned_diet_plan1 = access.Add(new PinnedDietPlans { DietPlanId = diet_plan_1.Id, PersonId = person.Id });
+            var pinned_diet_plan2 = access.Add(new PinnedDietPlans { DietPlanId = diet_plan_2.Id, PersonId = person.Id });
+            var followings = access.Add(new Followings { Follower = person.Id, Following = 2 });
+            var returned = spec_access.GetPersonById(person.Id);
+            // var returned = access.GetById<Persons>(person.Id);
+            Assert.AreEqual("MyUnitTest", returned.Name);
+            access.Delete<Followings>(followings.Id);
+            access.Delete<PinnedDietPlans>(pinned_diet_plan1.Id);
+            access.Delete<PinnedDietPlans>(pinned_diet_plan2.Id);
+            access.Delete<Persons>(person.Id);
+            access.Delete<DietPlans>(diet_plan_1.Id);
+            access.Delete<DietPlans>(diet_plan_2.Id);
+        }
+
+        [TestMethod]
         public void TestDietPlansGetDietPlansByCreator()
         {
             var context = new cse136Context();
@@ -32,12 +57,27 @@ namespace DALTest
             Assert.AreEqual("MyUnitTest", person.Name);
             var diet_plan_1 = access.Add(new DietPlans { Name = "Unit Diet 1", Information = "Unit test diet 1", PersonId = person.Id });
             var diet_plan_2 = access.Add(new DietPlans { Name = "Unit Diet 2", Information = "Unit test diet 2", PersonId = person.Id });
-            var returned = spec_access.GetDietPlansById(person.Id);
+            var returned = spec_access.GetDietPlansByCreatorId(person.Id);
             Assert.IsTrue(returned.ToList().Contains(diet_plan_1));
             Assert.IsTrue(returned.ToList().Contains(diet_plan_2));
+            Assert.IsNotNull(returned.ToList()[0].Person);
+            Assert.AreEqual(person.Name, returned.ToList()[0].Person.Name);
             access.Delete<Persons>(person.Id);
             access.Delete<DietPlans>(diet_plan_1.Id);
             access.Delete<DietPlans>(diet_plan_2.Id);
+        }
+
+        [TestMethod]
+        public void TestDietPlansGetDietPlanById()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new DietPlansAccess(context);
+            var returned = spec_access.GetDietPlanById(5);
+            Assert.IsNotNull(returned.Meals);
+            Assert.IsNotNull(returned.Person);
+            Assert.AreEqual(5, returned.Meals.ToArray<Meals>()[0].DietPlanId);
+            Assert.AreEqual(4, returned.Person.Id);
         }
 
         [TestMethod]
@@ -53,6 +93,7 @@ namespace DALTest
             var returned = spec_access.GetDietPlansByName("Unit Diet");
             Assert.IsTrue(returned.ToList().Contains(diet_plan_1));
             Assert.IsTrue(returned.ToList().Contains(diet_plan_2));
+            Assert.IsNotNull(returned.ToList()[0].Person);
             access.Delete<Persons>(person.Id);
             access.Delete<DietPlans>(diet_plan_1.Id);
             access.Delete<DietPlans>(diet_plan_2.Id);
@@ -74,6 +115,31 @@ namespace DALTest
             access.Delete<Followings>(following.Id);
             access.Delete<Persons>(person_1.Id);
             access.Delete<Persons>(person_2.Id);
+        }
+
+        [TestMethod]
+        public void TestGetMealById()
+        {
+            var context = new cse136Context();
+            var access = new GenericAccess(context);
+            var spec_access = new MealsAccess(context);
+            var meal = access.Add(new Meals { Name = "NewTest", Information = "Test Information", DietPlanId = 3 });
+            Assert.AreEqual("NewTest", meal.Name);
+            var kiwi = access.Add(new Foods { Name = "Kiwi", Category = "Fruit", Nutrition = "Don't know" });
+            var carrot = access.Add(new Foods { Name = "Carrot", Category = "Vegetable", Nutrition = "Vitamin A" });
+            Assert.AreEqual("Kiwi", kiwi.Name);
+            Assert.AreEqual("Carrot", carrot.Name);
+            var mealFood1 = access.Add(new FoodInMeals { MealId = meal.Id, FoodId = kiwi.Id });
+            var mealFood2 = access.Add(new FoodInMeals { MealId = meal.Id, FoodId = carrot.Id });
+            var returned = spec_access.GetMealById(meal.Id);
+            Assert.AreEqual("NewTest", returned.Name);
+            Assert.IsNotNull(returned.FoodInMeals);
+            Assert.AreEqual("Kiwi", returned.FoodInMeals.ToList()[0].Food.Name);
+            access.Delete<FoodInMeals>(mealFood1.Id);
+            access.Delete<FoodInMeals>(mealFood2.Id);
+            access.Delete<Meals>(meal.Id);
+            access.Delete<Foods>(kiwi.Id);
+            access.Delete<Foods>(carrot.Id);
         }
 
         [TestMethod]

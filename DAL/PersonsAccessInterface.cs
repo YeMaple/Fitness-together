@@ -7,6 +7,7 @@ namespace DAL
 {
     public interface PersonsAccessInterface
     {
+        Persons GetPersonById(int id);
         Persons Login(String email, String password);
     }
 }

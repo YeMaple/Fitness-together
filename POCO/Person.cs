@@ -12,10 +12,10 @@ namespace POCO
         public byte[] Image { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public List<int> MyDietPlansId { get; set; }
+        public List<DietPlan> MyDietPlans { get; set; }
         public List<int> MyWorkoutsId { get; set; }
         public List<int> MyFollowingsId { get; set; }
         public List<int> MyPinnedWorkoutsId { get; set; }
-        public List<int> MyPinnedDietPlansId { get; set; }
+        public List<DietPlan> MyPinnedDietPlans { get; set; }
     }
 }
