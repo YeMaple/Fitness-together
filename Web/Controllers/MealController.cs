@@ -100,43 +100,6 @@ namespace Web.Controllers
                 foodInMealResult.StatusCode = 400;
             }
 
-            try
-            {
-                bool exists = true;
-                //var ret;
-                foreach (POCO.Food newFood in m.FoodsInMeal)
-                {
-                    if ( foodService.getFoodsByName(newFood.Name).Count() == 0)
-                    {
-                        foodService.create(newFood);
-                    }
-                    else
-                    {
-                        exists = false;
-                        break;
-                    }
-
-                    if (exists == true)
-                    {
-                        var ret = "Successfully added" + newFood.Name;
-                        mealResult = Json(ret);
-                        mealResult.StatusCode = 200;
-                    }
-
-                    else
-                    {
-                        var ret = newFood.Name + "already exists";
-                        mealResult = Json(ret);
-                        mealResult.StatusCode = 400;
-                    }
-                }
-            }
-            catch(Exception e)
-            {
-                mealResult = Json(e);
-                mealResult.StatusCode = 400;
-            }
-
             return mealResult;
         }
 

@@ -664,30 +664,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SuperEEJ\\.nuget\\packages\\": {},
+    "C:\\Users\\Ye Feng\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\POCO\\POCO.csproj",
+      "projectUniqueName": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\POCO\\POCO.csproj",
       "projectName": "POCO",
-      "projectPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\POCO\\POCO.csproj",
-      "packagesPath": "C:\\Users\\SuperEEJ\\.nuget\\packages\\",
-      "outputPath": "F:\\ProgramData\\School\\GroupProjects\\Fitness-together\\POCO\\obj\\",
+      "projectPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\POCO\\POCO.csproj",
+      "packagesPath": "C:\\Users\\Ye Feng\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ye Feng\\source\\repos\\CSE136\\POCO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\SuperEEJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "E:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Ye Feng\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "E:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
