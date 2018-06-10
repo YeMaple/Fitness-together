@@ -139,6 +139,12 @@ namespace Web.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetAllDietPlans()
+        {
+            return GetDietPlansByName("");
+        }
+
+        [HttpGet]
         public IActionResult GetDietPlansByName(string name)
         {
             var service = new DietPlanService(_genericAccess, _dietPlansAccess);

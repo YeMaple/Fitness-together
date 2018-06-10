@@ -1,63 +1,51 @@
 ﻿@model Web.ViewModels.Person
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
 }
 
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
 <body>
 
 <h4>Person</h4>
 <hr />
-<div class="row">
+<div id="myElement" class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+                <label class="control-label">Id</label>
+                <input type="text" v-model="result.data.id" class="form-control" readonly />
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label class="control-label">Name</label>
+                <input type="text" v-model="result.data.name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label class="control-label">Email</label>
+                <input type="text" v-model="result.data.email" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label class="control-label">Password</label>
+                <input type="password" v-model="result.data.password" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Sex" class="control-label"></label>
-                <input asp-for="Sex" class="form-control" />
-                <span asp-validation-for="Sex" class="text-danger"></span>
+                <label class="control-label">Sex</label>
+                <input type="text" v-model="result.data.sex" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
+                <label class="control-label">Age</label>
+                <input type="text" v-model="result.data.age" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Profile" class="control-label"></label>
-                <input asp-for="Profile" class="form-control" />
-                <span asp-validation-for="Profile" class="text-danger"></span>
+                <label class="control-label">Profile</label>
+                <input type="text" v-model="result.data.profile" class="form-control" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button @@click="edit">Save</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -68,5 +56,48 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    var personId = '@Model.Id';
+
+    var myVue = new Vue(
+        {
+            el: "#myElement",
+            data: {
+                personId: personId,
+                result: []
+            },
+            methods: {
+                edit: function () {
+                    var person = {
+                        Id: myVue.result.data.id,
+                        Name: myVue.result.data.name,
+                        Email: myVue.result.data.email,
+                        Password: myVue.result.data.password,
+                        Sex: myVue.result.data.sex,
+                        Age: myVue.result.data.age,
+                        Profile: myVue.result.data.profile
+                    };
+                    window.axios.put('/Person/Update', person)
+                        .then(response => {
+                            alert("Successfully saved!");
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            alert("Error while updating...");
+                        });
+                }
+            },
+            created: function () {
+                window.axios.get('/Person/GetPersonById/5')
+                    .then(response => { myVue.result = response; })
+                    .catch(error => {
+                        myVue.result = "Error loading student info";
+                        console.log(error);
+                    });
+            }
+        }
+    );
+</script>
 </body>
 </html>

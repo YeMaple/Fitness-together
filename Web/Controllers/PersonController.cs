@@ -118,7 +118,7 @@ namespace Web.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update(POCO.Person person)
+        public IActionResult Update([FromBody]POCO.Person person)
         {
             var service = new PersonService(_personsAccess, _genericAccess, _followingsAccess);
             JsonResult result;

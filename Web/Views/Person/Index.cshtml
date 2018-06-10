@@ -1,68 +1,73 @@
 ﻿@model Web.ViewModels.Person
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Person";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-
-<div>
-    <h4>Person</h4>
+<div id="myBody">
+    <h2>Person</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Id)
+            Id
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Id)
+            {{PersonId}}
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Name
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            {{result.data.name}}
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>*@
-        <dt>
-            @Html.DisplayNameFor(model => model.Sex)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Sex)
+            {{result.data.email}}
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Age)
+            Sex
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Age)
+            {{result.data.sex}}
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Profile)
+            Age
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Profile)
+            {{result.data.age}}
+        </dd>
+        <dt>
+            Profile
+        </dt>
+        <dd>
+            {{result.data.profile}}
         </dd>
     </dl>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
 </div>
-</body>
-</html>
+
+<script>
+    var myVue = new Vue(
+        {
+            el: "#myBody",
+            data: {
+                PersonId: @Model.Id,
+                result: []
+            },
+            created: function () {
+                window.axios.get('/Person/GetPersonById/5')
+                    .then(response => {
+                        myVue.result = response;
+                    })
+                    .catch(error => {
+                        myVue.result = "Error loading students";
+                        console.log(error);
+                    });
+            }
+        }
+    );
+</script>
